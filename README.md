@@ -173,15 +173,14 @@ bb ayu colors [variant] [filter] [--json]  Resolved ayu colors
 ## How it works
 
 ```mermaid
-flowchart LR
+flowchart TD
   ayu["ayu npm package"] --> gen["scripts/generate-themes.mjs"]
   gen --> css["themes/*.css"]
   gen --> pal["generated/palettes.ts"]
   css --> bb["bb: Settings → Appearance, bb theme set"]
-  pal --> panel["app.tsx: Settings → Ayu"]
-  pal --> server["server.ts: bb ayu, rpc"]
-  panel -- "activeTheme, setTheme" --> server
-  server -- "bb.sdk.theme.set" --> bb
+  pal --> panel["Settings → Ayu panel (app.tsx)"]
+  pal --> cli["bb ayu CLI (server.ts)"]
+  panel -- "Apply: rpc to bb.sdk.theme.set" --> bb
 ```
 
 <details>
