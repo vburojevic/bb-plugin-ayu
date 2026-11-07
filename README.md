@@ -102,12 +102,12 @@ bb paints diffs, file previews and the file editor with a code theme of its own.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/panel-dark.png">
-  <img src="assets/screenshots/panel-light.png" width="100%" alt="The theme switcher in Settings, Ayu">
+  <img src="assets/screenshots/panel-light.png" width="100%" alt="The theme switcher on bb's Settings → Ayu page">
 </picture>
 
 ### Switch themes
 
-**Settings → Ayu** switches themes with live miniature previews drawn from each palette. The panel follows theme changes made anywhere else, from Settings → Appearance, `bb theme set` or another window.
+**Settings → Ayu** switches themes with live miniature previews drawn from each palette. The panel follows theme changes made elsewhere: in Settings → Appearance, with `bb theme set` or in another window.
 
 </td>
 <td width="50%" valign="top">
@@ -302,16 +302,18 @@ UI components under `components/ui/` are vendored from the bb registry (shadcn m
 <summary>Which images are rendered and which are captured</summary>
 <br>
 
-**The theme, panel and palette images are rendered, not captured from a running bb.** `npm run screenshots` loads `themes/<id>.css` verbatim into a headless Chromium page over a small base layer that reproduces the token derivations bb performs but this plugin leaves alone (`--foreground`, `--ring`, the `--sh-*` defaults), then screenshots it at 2x. The code block is highlighted by sugar-high, the same library bb uses, so the `--sh-*` mapping above is exercised for real.
+**The side-by-side strip and the theme, panel and palette images are rendered, not captured from a running bb.** `npm run screenshots` loads `themes/<id>.css` verbatim into a headless Chromium page over a small base layer that reproduces the token derivations bb performs but this plugin leaves alone (`--foreground`, `--ring`, the `--sh-*` defaults), then screenshots it at 2x. The code block is highlighted by sugar-high, the same library bb uses, so the `--sh-*` mapping above is exercised for real.
 
 Every color in those images is therefore a color the plugin actually ships, and regenerating after a palette change keeps them honest. The window layout is a stand-in for bb's chrome; the content is invented. Nothing comes from anyone's bb instance.
 
-**The hero and the diff images are captured** from bb 0.49 itself, running headless with its own empty data folder and this plugin installed. The diff shows an invented change to a sample file.
+**The header image (`hero-light`, `hero-dark`) and the diff images are captured** from bb 0.49 itself, running headless with its own empty data folder and this plugin installed. The diff shows an invented change to a sample file.
 
 </details>
 
 Colors are MIT-licensed by the ayu project (Ike Ku / Konstantin Pschera).
 
 ---
+
+## More bb plugins
 
 <p align="center">See every bb plugin I publish at <a href="https://github.com/vburojevic/bb-plugins"><b>vburojevic/bb-plugins</b></a>.</p>

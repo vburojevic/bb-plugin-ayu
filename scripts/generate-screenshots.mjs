@@ -299,6 +299,8 @@ pre.term { background: var(--surface-recessed-solid); }
 /* The README pairs the panel with a palette "peek": the same palette card cut
    to the panel image's height and faded into its own background, so the two
    sit side by side at equal height. The full palette images stay as they are. */
+/* 430px is the panel frame's rendered height (panel-*.png is 956px tall at 2x,
+   minus the stage padding); raise both together if the panel grows. */
 .peek > .frame { height: 430px; position: relative; }
 .peek > .frame::after {
   content: ""; position: absolute; inset: auto 0 0 0; height: 140px;
