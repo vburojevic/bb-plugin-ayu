@@ -24,19 +24,31 @@
         "id": "ayu-light",
         "name": "Ayu Light",
         "description": "Warm off-white, amber accent",
-        "css": "./themes/ayu-light.css"
+        "css": "./themes/ayu-light.css",
+        "codeTheme": {
+          "dark": "ayu-light",
+          "light": "ayu-light"
+        }
       },
       {
         "id": "ayu-dark",
         "name": "Ayu Dark",
         "description": "Deep near-black, amber accent",
-        "css": "./themes/ayu-dark.css"
+        "css": "./themes/ayu-dark.css",
+        "codeTheme": {
+          "dark": "ayu-dark",
+          "light": "ayu-dark"
+        }
       },
       {
         "id": "ayu-mirage",
         "name": "Ayu Mirage",
         "description": "Muted blue-grey, warm amber accent",
-        "css": "./themes/ayu-mirage.css"
+        "css": "./themes/ayu-mirage.css",
+        "codeTheme": {
+          "dark": "ayu-mirage",
+          "light": "ayu-mirage"
+        }
       }
     ],
     "app": "./app.tsx"

@@ -171,8 +171,15 @@ they already resolve to ayu's `editor.fg` and a dimmed tier of it, and
 sugar-high's `sign` covers *all* punctuation — ayu's salmon operator colour
 there would tint every bracket and comma.
 
-BB's Shiki-based diff viewer picks its theme in JS and is not reachable from a
-theme stylesheet, though BB bundles Shiki's ayu themes already.
+### Diffs and file previews
+
+BB paints diffs, file previews and the file editor with a code theme, not with
+the stylesheet. Each ayu theme declares Shiki's matching ayu theme as its
+`codeTheme` (`ayu-light`, `ayu-dark` or `ayu-mirage`, which BB bundles) for
+both modes, the same way its stylesheet paints both modes. Their editor
+background and foreground are the same colors this plugin's palette uses.
+Without the declaration BB falls back to its default `pierre-dark` /
+`pierre-light` code theme.
 
 ### What is *not* taken from ayu
 
