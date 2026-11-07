@@ -13,7 +13,7 @@
   },
   "bb": {
     "name": "Ayu",
-    "description": "The three ayu themes — Light, Dark, Mirage — with a palette explorer panel and a `bb ayu` colour lookup.",
+    "description": "The three ayu themes (Light, Dark and Mirage), with a palette explorer panel and a `bb ayu` color lookup.",
     "branding": {
       "icon": "./assets/icon.svg"
     },
