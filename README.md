@@ -130,10 +130,10 @@ explicitly:
 | `--state-hover` / `--state-active` | `ui.selection.*` | `list.hoverBackground` |
 | `--surface-selected` | `ui.selection.active` | `list.activeSelectionBackground` |
 | `--primary` / `--primary-foreground` | `common.accent.tint` / `.on` | `button.background` / `.foreground` |
-| `--file-accent` | `syntax.entity` | — |
+| `--timeline-accent`, `--file-accent` | `syntax.entity` | — |
 | `--destructive`, `--destructive-text` | `common.error` | `errorForeground` |
 | `--warning`, `--attention` | `common.accent.tint` | `editorWarning.foreground` |
-| `--success`, `--diff-*` | `vcs.*` | `gitDecoration.*ResourceForeground` |
+| `--success`, `--success-foreground`, `--diff-*` | `vcs.*` | `gitDecoration.*ResourceForeground` |
 | `--ansi-0…15` | `terminal.*` | `terminal.ansi*` |
 
 Two derived-fill traps worth knowing:

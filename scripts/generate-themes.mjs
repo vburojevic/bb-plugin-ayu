@@ -131,6 +131,9 @@ function tokens(variant) {
     ["/* accent */"],
     ["--primary", accent],
     ["--primary-foreground", common.accent.on.hex()],
+    // BB derives --file-accent from --timeline-accent; ayu pins both to the
+    // entity blue, so timeline labels and file links use ayu blue, not bb blue.
+    ["--timeline-accent", syntax.entity.hex()],
     ["--file-accent", syntax.entity.hex()],
 
     ["/* semantic */"],
@@ -141,6 +144,7 @@ function tokens(variant) {
     ["--warning-text", accent],
     ["--attention", accent],
     ["--success", vcs.added.hex()],
+    ["--success-foreground", vcs.added.hex()],
     ["--diff-added", vcs.added.hex()],
     ["--diff-removed", vcs.removed.hex()],
     ["--pr-merged", syntax.constant.hex()],
