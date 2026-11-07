@@ -7,6 +7,7 @@
 import { useEffect, useMemo, useState } from "react";
 import {
   definePluginApp,
+  experimental_copyToClipboard,
   useRealtime,
   useRealtimeConnectionState,
   useRpc,
@@ -53,10 +54,11 @@ function isLightColor(hex: string): boolean {
 }
 
 async function copyHex(hex: string) {
-  try {
-    await navigator.clipboard.writeText(hex);
+  // bb's own clipboard writer: native on bb Desktop (no focus or secure origin
+  // needed), the Clipboard API then the copy command in browsers.
+  if (await experimental_copyToClipboard({ text: hex })) {
     toast.success(`Copied ${hex}`);
-  } catch {
+  } else {
     toast.error("Clipboard is unavailable in this window");
   }
 }
