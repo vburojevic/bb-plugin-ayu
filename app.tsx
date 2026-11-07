@@ -75,7 +75,9 @@ function useActiveTheme() {
   // the app theme changes its code theme. Every ayu theme declares its own
   // (package.json `codeTheme`), so a switch to, from or between ayu themes
   // made anywhere else (Settings → Appearance, `bb theme set`, another
-  // window) changes this name and triggers a re-read.
+  // window) changes this name and triggers a re-read. The one switch it
+  // misses is between an ayu theme and a custom theme that declares the same
+  // ayu code theme; the badge then catches up on the next reconnect or visit.
   const codeThemeName = experimental_useCodeTheme().name;
 
   useEffect(() => {
