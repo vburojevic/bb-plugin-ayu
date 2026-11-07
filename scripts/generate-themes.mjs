@@ -66,8 +66,14 @@ const ANSI = [
 ];
 
 function tokens(variant) {
-  const { syntax, terminal, vcs, editor, ui, common } = variant;
+  const { syntax, terminal, vcs, editor, ui, common, palette } = variant;
   const uiFg = ui.fg.hex();
+  // bb draws status text (a finished thread's sidebar label, passing checks)
+  // in --success-foreground. Ayu Light's vcs.added is 2.2:1 on its canvas, so
+  // there the text takes the darkest green ayu publishes, palette.green.l1
+  // (3.3:1). The dark variants keep vcs.added, which is well above 3:1.
+  const successText =
+    contrast(vcs.added.hex(), editor.bg.hex()) < 3 ? palette.green.l1.hex() : vcs.added.hex();
   const line = ui.line.hex();
   const accent = common.accent.tint.hex();
 
@@ -144,7 +150,7 @@ function tokens(variant) {
     ["--warning-text", accent],
     ["--attention", accent],
     ["--success", vcs.added.hex()],
-    ["--success-foreground", vcs.added.hex()],
+    ["--success-foreground", successText],
     ["--diff-added", vcs.added.hex()],
     ["--diff-removed", vcs.removed.hex()],
     ["--pr-merged", syntax.constant.hex()],

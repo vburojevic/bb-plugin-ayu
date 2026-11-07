@@ -133,7 +133,7 @@ explicitly:
 | `--timeline-accent`, `--file-accent` | `syntax.entity` | — |
 | `--destructive`, `--destructive-text` | `common.error` | `errorForeground` |
 | `--warning`, `--attention` | `common.accent.tint` | `editorWarning.foreground` |
-| `--success`, `--success-foreground`, `--diff-*` | `vcs.*` | `gitDecoration.*ResourceForeground` |
+| `--success`, `--success-foreground`, `--diff-*` | `vcs.*` (success text in Ayu Light: `palette.green.l1`, see below) | `gitDecoration.*ResourceForeground` |
 | `--ansi-0…15` | `terminal.*` | `terminal.ansi*` |
 
 Two derived-fill traps worth knowing:
@@ -188,6 +188,8 @@ Without the declaration BB falls back to its default `pierre-dark` /
 text; ayu's `ui.fg` is a tab-label colour, far too dim for that role. The tiers
 follow BB's anchor-derived recipe and pick the palette's hue up through `--ink`
 and `--canvas`.
+
+**Success text in Ayu Light.** bb draws status text, such as a finished thread's sidebar label, in `--success-foreground`. Ayu Light's `vcs.added` is 2.2:1 on its canvas, so that one token takes the darkest green ayu publishes, `palette.green.l1` (3.3:1). The dark variants keep `vcs.added`.
 
 **ANSI bright black on the dark variants**, where ayu 9 sets both black and
 bright black to near-black. Bright black is what dim terminal output is drawn
