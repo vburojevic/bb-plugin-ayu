@@ -296,6 +296,16 @@ pre.term { background: var(--surface-recessed-solid); }
   background: var(--background); color: var(--foreground);
   padding: 26px 28px; display: flex; flex-direction: column; gap: 26px;
 }
+/* The README pairs the panel with a palette "peek": the same palette card cut
+   to the panel image's height and faded into its own background, so the two
+   sit side by side at equal height. The full palette images stay as they are. */
+/* 430px is the panel frame's rendered height (panel-*.png is 956px tall at 2x,
+   minus the stage padding); raise both together if the panel grows. */
+.peek > .frame { height: 430px; position: relative; }
+.peek > .frame::after {
+  content: ""; position: absolute; inset: auto 0 0 0; height: 140px;
+  background: linear-gradient(to bottom, transparent, var(--background));
+}
 .panel h1 { font-size: 15px; font-weight: 600; }
 .panel .sub { font-size: 12px; color: var(--muted-foreground); margin-top: 3px; }
 .sec { display: flex; flex-direction: column; gap: 12px; }
@@ -660,6 +670,15 @@ export async function main() {
         themeCss: css[theme.variant],
         mode: theme.mode,
         body: paletteHtml(theme, palettes[theme.variant]),
+      });
+    }
+
+    for (const theme of VARIANTS) {
+      await shoot(browser, {
+        name: `palette-peek-${theme.variant}`,
+        themeCss: css[theme.variant],
+        mode: theme.mode,
+        body: `<div class="peek">${paletteHtml(theme, palettes[theme.variant])}</div>`,
       });
     }
 
