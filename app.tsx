@@ -8,6 +8,7 @@ import { useEffect, useMemo, useState } from "react";
 import {
   definePluginApp,
   experimental_copyToClipboard,
+  experimental_useCodeTheme,
   useRealtime,
   useRealtimeConnectionState,
   useRpc,
@@ -70,6 +71,14 @@ function useActiveTheme() {
   const [themeId, setThemeId] = useState<string | null>(null);
   const [loaded, setLoaded] = useState(false);
   const connection = useRealtimeConnectionState();
+  // bb has no theme event for plugins, but it re-renders this hook whenever
+  // the app theme changes its code theme. Every ayu theme declares its own
+  // (package.json `codeTheme`), so a switch to, from or between ayu themes
+  // made anywhere else (Settings → Appearance, `bb theme set`, another
+  // window) changes this name and triggers a re-read. The one switch it
+  // misses is between an ayu theme and a custom theme that declares the same
+  // ayu code theme; the badge then catches up on the next reconnect or visit.
+  const codeThemeName = experimental_useCodeTheme().name;
 
   useEffect(() => {
     let cancelled = false;
@@ -87,8 +96,9 @@ function useActiveTheme() {
     return () => {
       cancelled = true;
     };
-    // Refetch on every reconnect: theme-changed signals are not replayed.
-  }, [connection]); // eslint-disable-line react-hooks/exhaustive-deps
+    // Refetch on every reconnect (theme-changed signals are not replayed) and
+    // on every code theme change (see above).
+  }, [connection, codeThemeName]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useRealtime("theme-changed", (payload) => {
     const next = (payload as { themeId?: string }).themeId;
