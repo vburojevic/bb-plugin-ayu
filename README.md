@@ -27,8 +27,11 @@ bb plugin install git:https://github.com/vburojevic/bb-plugin-ayu.git
 ```
 
 > [!TIP]
-> Then pick a theme under **Settings → Appearance**, in **Settings → Ayu**, or from a terminal:
-> `bb theme set plugin:ayu:ayu-dark`
+> Then pick a theme under **Settings → Appearance** or **Settings → Ayu**, or from a terminal:
+>
+> ```sh
+> bb theme set plugin:ayu:ayu-dark
+> ```
 
 ## The three themes
 
@@ -110,8 +113,8 @@ bb paints diffs, file previews and the file editor with a code theme of its own.
 <td width="50%" valign="top">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/palette-dark.png">
-  <img src="assets/screenshots/palette-light.png" width="100%" alt="The palette explorer: ramps, syntax, terminal and interface colors">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/screenshots/palette-peek-dark.png">
+  <img src="assets/screenshots/palette-peek-light.png" width="100%" alt="The top of the palette explorer: the color ramps">
 </picture>
 
 ### Explore the palette
@@ -123,7 +126,7 @@ Below the switcher sits every color ayu publishes for the selected variant: ramp
 </table>
 
 <details>
-<summary>The same panel in every variant</summary>
+<summary>The panel and the full palette in every variant</summary>
 <br>
 
 <table>
